@@ -2,32 +2,13 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import YouTube from 'react-youtube';
 import { DurationBar, durationBar } from '../Components/DurationBar';
 import '../styles/_videoScreen.css';
-const Progress = ({ done }) => {
-  const [style, setStyle] = React.useState({});
 
-  setTimeout(() => {
-    const newStyle = {
-      opacity: 1,
-      width: `${done}%`,
-    };
-
-    setStyle(newStyle);
-  }, 200);
-
-  return (
-    <div className='progress'>
-      <div className='progress-done' style={style}>
-        {done}%
-      </div>
-    </div>
-  );
-};
 export const VideoScreen = () => {
   const [pause, setPause] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [player, setPlayer] = useState({});
   const [duration, setDuration] = useState();
-  const [progressBarStyle, setProgressBarStyle] = useState();
+
   const opts = {
     height: '480',
     width: '720',
@@ -48,35 +29,40 @@ export const VideoScreen = () => {
     player.playVideo();
   };
   const selam = () => {
-    console.log({ currentTime, timeBar });
+    console.log(player);
+    player.seekTo(50);
   };
-  const timeBarHandler=()=>{
-    
-  }
+  const timeBarHandler = (e) => {
+    player.pauseVideo();
+    let time = e.target.value;
+    let current = (time * duration) / 100;
+    console.log({ current });
+    player.seekTo(current);
+    player.playVideo();
+  };
   const videoOnReady = (event) => {
     // access to player in all event handlers via event.target
     const player = event.target;
+    player.playVideoAt(50);
     setPlayer(player);
-    // console.log('function player', player);
-    // console.log(player.getDuration());
     setDuration(player.getDuration());
     setInterval(() => {
       setCurrentTime(player.getCurrentTime());
-    }, 200);
+    }, 1000);
   };
   const videoOnPlay = (event) => {
     setCurrentTime(event.target.getCurrentTime());
-
     // console.log(event.target);
   };
 
   const videoOnStateChange = (event) => {
     // console.log('statechange', event.target);
-
+    const player = event.target;
     setCurrentTime(event.target.getCurrentTime());
     if (pause === true) {
       event.target.pauseVideo();
     }
+    player.playVideoAt(currentTime);
   };
 
   const videoOnPause = (event) => {
@@ -89,12 +75,6 @@ export const VideoScreen = () => {
   let timeBar = (currentTime / duration) * 100;
   let timeBarRounded = 0;
   timeBarRounded = Math.round(timeBar);
-  // console.log({ timeBarRounded });
-  useEffect(() => {}, [timeBar]);
-
-  const progressBarHandle = () => {
-    console.log('yık');
-  };
   return (
     <div>
       <YouTube
@@ -119,6 +99,7 @@ export const VideoScreen = () => {
         value={timeBarRounded}
         onChange={timeBarHandler}
       />
+
       {<p>{timeBarRounded}</p>}
     </div>
   );
