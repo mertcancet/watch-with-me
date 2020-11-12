@@ -17,10 +17,19 @@ const Chat = () => {
     socket.emit('chat message', message);
   };
   return (
-    <div>
-      <form onSubmit={chatHandler}>
-        <input type='text' onChange={(e) => setMessage(e.target.value)} />
-        <button type='submit'>Gönder</button>
+    <div className="">
+      <form onSubmit={chatHandler} className=" relative">
+        <input
+          className='bg-whit-700 border text-orange-500 mr-3 py-1 px-2 leading-bold focus:outline-none width'
+          type='text'
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button
+          className='m-2 bg-white hover:bg-orange-500 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-black-700 hover:border-transparent rounded inset-y-0 right-0' 
+          type='submit'
+        >
+          Gönder
+        </button>
       </form>
 
       {chat.map((message, index) => (

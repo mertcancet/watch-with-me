@@ -89,20 +89,32 @@ export const VideoScreen = () => {
 
   return (
     <div>
-      <YouTube
-        videoId='3m07zMRXXP0'
-        opts={opts}
-        onReady={videoOnReady}
-        onPlay={videoOnPlay}
-        onStateChange={videoOnStateChange}
-        onPause={videoOnPause}
-      />
-      <button onClick={playHandler}>Play</button>
-      <button onClick={pauseHandler}>Pause</button>
+      <div>
+        <YouTube
+          videoId='3m07zMRXXP0'
+          opts={opts}
+          onReady={videoOnReady}
+          onPlay={videoOnPlay}
+          onStateChange={videoOnStateChange}
+          onPause={videoOnPause}
+        />
+      </div>
+      <button
+        className='m-2 bg-white hover:bg-orange-500 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-black-700 hover:border-transparent rounded'
+        onClick={playHandler}
+      >
+        Play
+      </button>
+      <button
+        className='m-2 bg-white hover:bg-orange-500 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-black-700 hover:border-transparent rounded'
+        onClick={pauseHandler}
+      >
+        Pause
+      </button>
       <p>Progress component</p>
 
       <input
-        className='timeBar progress'
+        className='timeBar rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-500'
         type='range'
         name='currentTime'
         min={1}
