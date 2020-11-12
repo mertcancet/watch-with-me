@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import io from 'socket.io-client';
-
 import '../styles/_chat.css';
+
 const socket = io.connect('localhost:3000', { transports: ['websocket'] });
 
 const Chat = () => {
@@ -15,10 +14,8 @@ const Chat = () => {
   });
   const chatHandler = (e) => {
     e.preventDefault();
-    console.log('tı');
     socket.emit('chat message', message);
   };
-  console.log(chat);
   return (
     <div>
       <form onSubmit={chatHandler}>

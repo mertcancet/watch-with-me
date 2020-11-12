@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
+import io from 'socket.io-client';
 import '../styles/_videoScreen.css';
+
+const socket = io.connect('localhost:3000', { transports: ['websocket'] });
 
 export const VideoScreen = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [player, setPlayer] = useState({});
   const [duration, setDuration] = useState();
 
+  useEffect(() => {});
   const opts = {
     height: '480',
     width: '720',
@@ -20,9 +24,11 @@ export const VideoScreen = () => {
   };
   //-BUTTONS
   const pauseHandler = () => {
+    socket.emit('pause');
     player.pauseVideo();
   };
   const playHandler = () => {
+    socket.emit('play');
     player.playVideo();
   };
   const selam = () => {};
@@ -33,7 +39,9 @@ export const VideoScreen = () => {
     player.pauseVideo();
     let time = e.target.value;
     let current = (time * duration) / 10000;
-    console.log({ current });
+    socket.on('current time', (currentTime) => {
+      console.log('curent');
+    });
     player.seekTo(current);
     player.playVideo();
   };
@@ -45,6 +53,15 @@ export const VideoScreen = () => {
     setDuration(player.getDuration());
     setInterval(() => {
       setCurrentTime(player.getCurrentTime());
+      socket.on('current time', (currentTime) => {
+        console.log('curent');
+      });
+      socket.on('play', () => {
+        player.playVideo();
+      });
+      socket.on('pause', () => {
+        player.pauseVideo();
+      });
     }, 1000);
   };
   const videoOnPlay = (event) => {

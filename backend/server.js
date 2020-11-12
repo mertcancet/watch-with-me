@@ -8,6 +8,18 @@ io.on('connection', (socket) => {
     console.log('message: ' + msg);
     io.emit('chat message', msg);
   });
+  socket.on('play', () => {
+    console.log('play');
+    io.emit('play');
+  });
+  socket.on('pause', () => {
+    console.log('pause');
+    io.emit('pause');
+  });
+  socket.on('current time', (currentTime) => {
+    console.log('current time', currentTime);
+    io.emit('current time', currentTime);
+  });
 });
 
 http.listen(3000, () => {
