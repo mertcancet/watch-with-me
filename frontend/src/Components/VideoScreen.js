@@ -39,11 +39,9 @@ export const VideoScreen = () => {
     player.pauseVideo();
     let time = e.target.value;
     let current = (time * duration) / 10000;
-    socket.on('current time', (currentTime) => {
-      console.log('curent');
-    });
     player.seekTo(current);
     player.playVideo();
+    socket.emit('current time', current);
   };
   const videoOnReady = (event) => {
     // access to player in all event handlers via event.target
@@ -54,7 +52,7 @@ export const VideoScreen = () => {
     setInterval(() => {
       setCurrentTime(player.getCurrentTime());
       socket.on('current time', (currentTime) => {
-        console.log('curent');
+        player.seekTo(currentTime);
       });
       socket.on('play', () => {
         player.playVideo();
