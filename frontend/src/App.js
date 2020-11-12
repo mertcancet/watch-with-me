@@ -5,7 +5,7 @@ import { VideoScreen } from './Components/VideoScreen';
 export default class App extends React.Component {
   render() {
     return (
-      <div className='App'>
+      <div className=' container mx-auto p-4'>
         <VideoScreen />
         <Chat />
       </div>
