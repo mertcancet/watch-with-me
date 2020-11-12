@@ -47,3 +47,20 @@ body,
 .form-controls label {
   display: none;
 } */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f4f4f4;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+}

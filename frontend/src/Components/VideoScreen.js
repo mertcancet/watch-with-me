@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
-import { DurationBar, durationBar } from '../Components/DurationBar';
 import '../styles/_videoScreen.css';
 
 export const VideoScreen = () => {
-  const [pause, setPause] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [player, setPlayer] = useState({});
   const [duration, setDuration] = useState();
@@ -13,11 +11,10 @@ export const VideoScreen = () => {
     height: '480',
     width: '720',
     playerVars: {
-      controls: 1,
-      disablekb: 1,
+      controls: 0,
+      disablekb: 0,
       modestbranding: 1,
       rel: 0,
-      showinfo: 0,
       autoplay: 0,
     },
   };
@@ -28,14 +25,14 @@ export const VideoScreen = () => {
   const playHandler = () => {
     player.playVideo();
   };
-  const selam = () => {
-    console.log(player);
-    player.seekTo(50);
-  };
+  const selam = () => {};
+
+  //-react-youtube functions
+
   const timeBarHandler = (e) => {
     player.pauseVideo();
     let time = e.target.value;
-    let current = (time * duration) / 100;
+    let current = (time * duration) / 10000;
     console.log({ current });
     player.seekTo(current);
     player.playVideo();
@@ -59,9 +56,7 @@ export const VideoScreen = () => {
     // console.log('statechange', event.target);
     const player = event.target;
     setCurrentTime(event.target.getCurrentTime());
-    if (pause === true) {
-      event.target.pauseVideo();
-    }
+
     player.playVideoAt(currentTime);
   };
 
@@ -72,13 +67,14 @@ export const VideoScreen = () => {
 
   // console.log({ currentTime });
   // console.log({ duration });
-  let timeBar = (currentTime / duration) * 100;
+  let timeBar = (currentTime / duration) * 10000;
   let timeBarRounded = 0;
   timeBarRounded = Math.round(timeBar);
+
   return (
     <div>
       <YouTube
-        videoId='5eYuUAV4YE4'
+        videoId='3m07zMRXXP0'
         opts={opts}
         onReady={videoOnReady}
         onPlay={videoOnPlay}
@@ -91,11 +87,11 @@ export const VideoScreen = () => {
 
       <button onClick={selam}>Selam </button>
       <input
-        className='timeBar'
+        className='timeBar progress'
         type='range'
         name='currentTime'
         min={1}
-        max={100}
+        max={10000}
         value={timeBarRounded}
         onChange={timeBarHandler}
       />
