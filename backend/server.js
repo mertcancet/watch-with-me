@@ -1,6 +1,10 @@
-var app = require('express')();
-var http = require('http').createServer(app);
+var express = require('express');
+var http = require('http').createServer(express());
 var io = require('socket.io')(http);
+
+
+const app = express();
+app.use(express.json());
 
 io.on('connection', (socket) => {
   console.log('user connected');
@@ -17,7 +21,6 @@ io.on('connection', (socket) => {
     io.emit('pause');
   });
   socket.on('current time', (currentTime) => {
-    console.log('current time', currentTime);
     io.emit('current time', currentTime);
   });
 });

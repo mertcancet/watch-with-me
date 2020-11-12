@@ -31,7 +31,6 @@ export const VideoScreen = () => {
     socket.emit('play');
     player.playVideo();
   };
-  const selam = () => {};
 
   //-react-youtube functions
 
@@ -46,13 +45,15 @@ export const VideoScreen = () => {
   const videoOnReady = (event) => {
     // access to player in all event handlers via event.target
     const player = event.target;
-    player.playVideoAt(50);
+    player.playVideo();
     setPlayer(player);
     setDuration(player.getDuration());
     setInterval(() => {
       setCurrentTime(player.getCurrentTime());
       socket.on('current time', (currentTime) => {
         player.seekTo(currentTime);
+        player.playVideo();
+        console.log('selam');
       });
       socket.on('play', () => {
         player.playVideo();
@@ -100,7 +101,6 @@ export const VideoScreen = () => {
       <button onClick={pauseHandler}>Pause</button>
       <p>Progress component</p>
 
-      <button onClick={selam}>Selam </button>
       <input
         className='timeBar progress'
         type='range'
