@@ -1,39 +1,39 @@
-.card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 30px;
-    min-height: 30rem;
-  }
-  form {
-  
+
+  .chatbox {
+    background-color: #1F1F23;
+    margin: 10px;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0px 3px 24px -8px rgba(0, 0, 0, 0.75);
+    height: 300px;
+    max-height: 300px;
   }
   
-  .name-field {
-    margin-bottom: 40px;
-  }
-  
-  button {
-    margin-top: 20px;
-    padding: 10px;
-    background: transparent;
-    border-radius: 5px;
-  }
-  
-  .render-chat {
-    max-width: 350px;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0px 3px 24px -8px rgba(0, 0, 0, 0.75);
-  }
-  
-  h3 {
-    color: #2f72da;
-  }
-  
-  span {
-    color: black;
-  }
-  
+
+.chatbox__chat{
+  height: 220px;
+  max-height: 220px;
+  overflow-y: auto;
+  color:#e78632;
+}
+.scroll::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #e78632;
+  background-image:-webkit-linear-gradient(45deg,rgba(255,255,255,.3) 20%,transparent 20%,transparent 40%,rgba(255, 255, 255, 0.3) 40%,rgba(255,255,255,.3) 60%,transparent 60%,transparent 80%,rgba(255, 255, 255, 0.3) 80%);
+  border-radius: 10px;
+}
+
+.chatbox__form input{
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+.chatbox__form button{
+ background-color: #ffffff;
+}

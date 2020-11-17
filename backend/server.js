@@ -2,7 +2,6 @@ var express = require('express');
 var http = require('http').createServer(express());
 var io = require('socket.io')(http);
 
-
 const app = express();
 app.use(express.json());
 
@@ -25,6 +24,6 @@ io.on('connection', (socket) => {
   });
 });
 
-http.listen(3000, () => {
-  console.log('listening on *:3000');
+http.listen(5000, () => {
+  console.log('listening on *:5000');
 });
