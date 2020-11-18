@@ -1,9 +1,14 @@
+
 var express = require('express');
 var http = require('http').createServer(express());
 var io = require('socket.io')(http);
+var dotenv = require('dotenv');
+var cors = require('cors');
 
 const app = express();
-app.use(express.json());
+dotenv.config();
+
+app.use(cors());
 
 io.on('connection', (socket) => {
   console.log('user connected');
@@ -24,6 +29,7 @@ io.on('connection', (socket) => {
   });
 });
 
-http.listen(5000, () => {
+
+app.listen(5000, () => {
   console.log('listening on *:5000');
 });

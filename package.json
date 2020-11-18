@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
@@ -13,10 +12,10 @@
   "author": "Mertcan Cetinkaya",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "socket.io": "^3.0.1"
-   
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

@@ -22,7 +22,7 @@ export const VideoScreen = () => {
       autoplay: 0,
     },
   };
-  //-BUTTONS
+  //BUTTONS
   const pauseHandler = () => {
     socket.emit('pause');
     player.pauseVideo();
@@ -32,7 +32,7 @@ export const VideoScreen = () => {
     player.playVideo();
   };
 
-  //-react-youtube functions
+  //react-youtube functions
 
   const timeBarHandler = (e) => {
     player.pauseVideo();
@@ -65,11 +65,9 @@ export const VideoScreen = () => {
   };
   const videoOnPlay = (event) => {
     setCurrentTime(event.target.getCurrentTime());
-    // console.log(event.target);
   };
 
   const videoOnStateChange = (event) => {
-    // console.log('statechange', event.target);
     const player = event.target;
     setCurrentTime(event.target.getCurrentTime());
 
@@ -77,12 +75,10 @@ export const VideoScreen = () => {
   };
 
   const videoOnPause = (event) => {
-    // console.log('pause', event.target);
-    setCurrentTime(event.target.getCurrentTime());
+   setCurrentTime(event.target.getCurrentTime());
   };
 
-  // console.log({ currentTime });
-  // console.log({ duration });
+
   let timeBar = (currentTime / duration) * 10000;
   let timeBarRounded = 0;
   timeBarRounded = Math.round(timeBar);
@@ -100,10 +96,9 @@ export const VideoScreen = () => {
           onPause={videoOnPause}
         />
       </div>
-      <p>Progress component</p>
 
       <input
-
+        className='mt-2'
         type='range'
         name='currentTime'
         min={1}
@@ -124,8 +119,6 @@ export const VideoScreen = () => {
       >
         Pause
       </button>
-
-      {<p>{timeBarRounded}</p>}
     </div>
   );
 };

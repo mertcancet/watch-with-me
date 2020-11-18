@@ -1,13 +1,14 @@
 
 input[type="range"] { 
-    margin: auto;
+	margin-top: 5px;
+  
     -webkit-appearance: none;
     position: relative;
     overflow: hidden;
     height: 20px;
     width: 100%;
     cursor: pointer;
-    border-radius: 0; /* iOS */
+    border-radius: 5px; /* iOS */
 }
 
 ::-webkit-slider-runnable-track {
@@ -23,12 +24,14 @@ input[type="range"] {
     height: 20px;
     background: #fff;
     box-shadow: -100vw 0 0 100vw  #e78632;
-    border: 2px solid #999; /* 1 */
+	border: 2px solid #999; /* 1 */
+	
 }
 
 ::-moz-range-track {
     height: 20px;
-    background: #ddd;
+	background: #ddd;
+	border-radius: 5px;
 }
 
 ::-moz-range-thumb {
