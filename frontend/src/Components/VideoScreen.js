@@ -3,7 +3,9 @@ import YouTube from 'react-youtube';
 import io from 'socket.io-client';
 import '../styles/_videoScreen.css';
 
-const socket = io.connect('localhost:5000', { transports: ['websocket'] });
+const socket = io.connect('localhost:5000/', {
+  transports: ['websocket'],
+});
 
 export const VideoScreen = () => {
   const [currentTime, setCurrentTime] = useState(0);
@@ -75,9 +77,8 @@ export const VideoScreen = () => {
   };
 
   const videoOnPause = (event) => {
-   setCurrentTime(event.target.getCurrentTime());
+    setCurrentTime(event.target.getCurrentTime());
   };
-
 
   let timeBar = (currentTime / duration) * 10000;
   let timeBarRounded = 0;

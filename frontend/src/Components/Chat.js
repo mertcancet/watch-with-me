@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import '../styles/_chat.css';
 
-const socket = io.connect('localhost:5000', { transports: ['websocket'] });
+const socket = io.connect('localhost:5000/', {
+  transports: ['websocket'],
+});
 
 const Chat = () => {
   const [message, setMessage] = useState('');
@@ -22,7 +24,9 @@ const Chat = () => {
       <div className='chatbox__chat scroll'>
         {chat.map((message, index) => (
           <div key={index} className='chatbox__chat__index'>
-            <>{message}</>
+            <>
+              {'>'} {message}
+            </>
           </div>
         ))}
       </div>

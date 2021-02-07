@@ -4,26 +4,35 @@
 
   <h1 align="center">Watch With Me Project</h1>
 
-  </p>
 </p>
 
 <hr/>
 You will be able to chat and watch youtube videos synchronized with your friends. I used Socket.io for chatting and synchronized the youtube videos. Also I used the css framework Tailwindcss in this project.
 I will develop this project further. I plan to add login with username and video search with Youtupe API
 
-TR
+###TR
+
 Bu projede Youtube üzerinden arkadaşlarınızla senkronize bir şekilde video izleyip, sohbet edebileceksiniz. Kullanıcıların sohbet edebilmesi ve youtube videolarının senkronize çalışması için Socket.io kullandım. Css framework'ü olan Tailwindcss kullandım.
 Bu projeyi geliştirmeye devam edeceğim. Kullanıcı adı ile giriş ve Youtupe API ile video araması özelliklerini eklemeyi planlıyorum.
 
-#####Features:
+### Video
+![](screenVideo/watchWithMe.gif)
+
+##### Screen:
+
+![](screenVideo/screens.PNG)
+#### Features:
 
 - Synchronized start/stop
 - Syncronized timebar ( \*\*Same video, same time. If you change the timebar, your friends timebar will be changed automatically)
 - Chat
 
 <hr/>
+
 ### Built With
-####Front-End
+
+#### Front-End
+
 - [React](https://reactjs.org/)
 - [React-Youtube](https://www.npmjs.com/package/react-youtube)
 - [socket.io-client](https://www.npmjs.com/package/socket.io-client)
@@ -34,7 +43,7 @@ devDependencies for configuration tailwindcss
 - [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 - [postcss-cli](https://www.npmjs.com/package/postcss-cli)
 
-####Back-End
+#### Back-End
 
 - [Express]()
 - [Socket.io](https://socket.io/)
