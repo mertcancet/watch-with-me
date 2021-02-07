@@ -7,20 +7,25 @@
 </p>
 
 <hr/>
+
+### EN
+
 You will be able to chat and watch youtube videos synchronized with your friends. I used Socket.io for chatting and synchronized the youtube videos. Also I used the css framework Tailwindcss in this project.
 I will develop this project further. I plan to add login with username and video search with Youtupe API
 
-###TR
+### TR
 
 Bu projede Youtube üzerinden arkadaşlarınızla senkronize bir şekilde video izleyip, sohbet edebileceksiniz. Kullanıcıların sohbet edebilmesi ve youtube videolarının senkronize çalışması için Socket.io kullandım. Css framework'ü olan Tailwindcss kullandım.
 Bu projeyi geliştirmeye devam edeceğim. Kullanıcı adı ile giriş ve Youtupe API ile video araması özelliklerini eklemeyi planlıyorum.
 
 ### Video
-![](screenVideo/watchWithMe.gif)
 
-##### Screen:
+![](screenVideo/watchWithMe1.gif)
+
+
 
 ![](screenVideo/screens.PNG)
+
 #### Features:
 
 - Synchronized start/stop
