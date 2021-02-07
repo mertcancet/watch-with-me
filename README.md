@@ -20,9 +20,9 @@ Bu projeyi geliştirmeye devam edeceğim. Kullanıcı adı ile giriş ve Youtupe
 
 ### Video
 
-![](screenVideo/watchWithMe1.gif)
+![](screenVideo/watchWithMe2.gif)
 
-
+##### Screen:
 
 ![](screenVideo/screens.PNG)
 
